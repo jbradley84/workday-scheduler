@@ -58,8 +58,18 @@ console.log(parseInt(plannerHours[i].id.slice(4)));
 
 // button function
 btnFunction = function () {
-    console.log("button click");
+    //console.log("button click");
+    var plannerObjects = [];
+    // create array object with inpud ID and text string
+    //var plannedEvent = document.querySelector("input").id
+        // if button class == input class, create array object...does specific button matter?...
+    // push array object to plannerObjects array
+    // store array in localStorage
+    // add array object items to HTML
+    
 }
+
+
 
 printDate();
 
