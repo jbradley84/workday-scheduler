@@ -1,6 +1,6 @@
 elEightAm = document.querySelector("#time8");
-elNineAm = document.querySelector("#time9"); 
-elTenAm = document.querySelector("#time10"); 
+elNineAm = document.querySelector("#time9");
+elTenAm = document.querySelector("#time10");
 elElevenAm = document.querySelector("#time11");
 elTwelvePm = document.querySelector("#time12");
 elOnePm = document.querySelector("#time13");
@@ -19,20 +19,38 @@ var printDate = function () {
 
 
 
-// function to add class to input divs relative to moment
-// console.log(moment().format("H"));
-// if ($(input.id) < moment().format("H")) {
-//     $(input.id).addClass("past");
-// }
 
-console.log(document.querySelector("input").id.slice(4));
-console.log(moment().format("H"));
 
-if (parseInt(document.querySelector("input").id.slice(4)) < parseInt(moment().format("H"))) {
-    console.log("you're onto something");
-} else {
-    console.log("try again");
+//console.log(document.querySelectorAll(".col-10"));
+//console.log(moment().format("H"));
+
+// function to loop through planner by hour block
+var plannerHours = document.querySelectorAll(".col-10");
+for (let i = 0; i < plannerHours.length; i++) {
+    
+    if (parseInt(plannerHours[i].id.slice(4)) < parseInt(moment().format("H"))) {
+        var pastEvent = function () {
+            console.log("past");
+        }
+    } else if (parseInt(plannerHours[i].id.slice(4)) == parseInt(moment().format("H"))) {
+        var presentEvent = function () {
+            console.log("present");
+        }
+    } else {
+        var futureEvent = function () {
+            console.log("future");
+        }
+    }
+console.log(parseInt(plannerHours[i].id.slice(4)));    
+pastEvent();
+//presentEvent();
+//futureEvent();
+
 }
+
+
+
+
 
 
 
