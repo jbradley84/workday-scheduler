@@ -37,24 +37,22 @@ var printDate = function () {
 // function to loop through planner by hour block
 var plannerHours = document.querySelectorAll(".col-10");
 for (let i = 0; i < plannerHours.length; i++) {
-    //console.log(plannerHours.length);
+    // if event hour has passed, add class "past"
     if (parseInt(plannerHours[i].id.slice(4)) < parseInt(moment().format("H"))) {
-        //console.log(parseInt(plannerHours[i].id.slice(4)));
-        //console.log(parseInt(moment().format("H")));  
         var pastEvent = function () {
-            console.log("past");
+            plannerHours[i].classList.add("past");
         }
         pastEvent();
+    // if event hour is now, add class "present"
     } else if (parseInt(plannerHours[i].id.slice(4)) == parseInt(moment().format("H"))) {
-        //console.log(parseInt(plannerHours[i].id.slice(4)));
-        //console.log(parseInt(moment().format("H")));
         var presentEvent = function () {
-            console.log("present");
+            plannerHours[i].classList.add("present");
         }
         presentEvent();
+    // if event hour is in the future, add class "future"
     } else {
         var futureEvent = function () {
-            console.log("future");
+            plannerHours[i].classList.add("future");
         }
         futureEvent();
     }
