@@ -1,13 +1,3 @@
-elEightAm = document.querySelector("#time8");
-elNineAm = document.querySelector("#time9");
-elTenAm = document.querySelector("#time10");
-elElevenAm = document.querySelector("#time11");
-elTwelvePm = document.querySelector("#time12");
-elOnePm = document.querySelector("#time13");
-elTwoPm = document.querySelector("#time14");
-elThreePm = document.querySelector("#time15");
-elFourPm = document.querySelector("#time16");
-elFivePm = document.querySelector("#time17");
 btnEightAm = document.querySelector("#Btn8");
 btnNineAm = document.querySelector("#Btn9");
 btnTenAm = document.querySelector("#Btn10");
@@ -18,8 +8,6 @@ btnTwoPm = document.querySelector("#Btn14");
 btnThreePm = document.querySelector("#Btn15");
 btnFourPm = document.querySelector("#Btn16");
 btnFivePm = document.querySelector("#Btn17");
-// empty array for event objects
-var plannerObjects = [];
 
 
 // function to display date in header
@@ -68,36 +56,23 @@ btnFunction = function () {
             var eventValue = plannerInput[i].value;
             // add key/value pairs to localStorage
             localStorage.setItem(eventKey, eventValue);
-
-            // make localStorage data persistent 
-            for (let n = 0; n < localStorage.length; n++) {
-                if (localStorage.getitem(key) == eventKey) {
-                    console.log("we've got a match");
-                } else {
-                    console.log("no match");
-                }
-            }
-
-          
         }
     }
+}
 
-// // turn calendar events into objects
-// var eventObject = {
-//     key: eventKey,
-//     value: eventValue
-// };
-// // push eventObject to plannerObjects array
-// plannerObjects.push(eventObject);
 
-// // save plannerObjects array in localStorage
-// localStorage.setItem(plannerObjects);    
-//console.log(plannerObjects);
+var renderSavedData = function() {
+    var plannerInput = document.querySelectorAll(".col-10");
+    for (let i = 0; i < plannerInput.length; i++) {
+        console.log(plannerInput[i].id);
+        $("#" + plannerInput[i].id).val(localStorage.getItem(plannerInput[i].id));
+    }
 }
 
 
 // run function printDate
 printDate();
+renderSavedData();
 
 
 // add event listenters to buttons
