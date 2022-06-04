@@ -93,15 +93,14 @@ btnFunction = function () {
 // // save plannerObjects array in localStorage
 // localStorage.setItem(plannerObjects);    
 //console.log(plannerObjects);
-
-    
 }
 
 
-
+// run function printDate
 printDate();
 
-// add event listenter to 8am button
+
+// add event listenters to buttons
 btnEightAm.addEventListener("click", btnFunction);
 btnNineAm.addEventListener("click", btnFunction);
 btnTenAm.addEventListener("click", btnFunction);
