@@ -56,6 +56,10 @@ btnFunction = function () {
             var eventValue = plannerInput[i].value;
             // add key/value pairs to localStorage
             localStorage.setItem(eventKey, eventValue);
+        } 
+
+        if (plannerInput[i].value == "") {
+            localStorage.removeItem(eventValue);
         }
     }
 }
@@ -64,7 +68,6 @@ btnFunction = function () {
 var renderSavedData = function() {
     var plannerInput = document.querySelectorAll(".col-10");
     for (let i = 0; i < plannerInput.length; i++) {
-        console.log(plannerInput[i].id);
         $("#" + plannerInput[i].id).val(localStorage.getItem(plannerInput[i].id));
     }
 }

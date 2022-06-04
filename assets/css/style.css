@@ -5,16 +5,6 @@ body {
     line-height: 1;
   }
   
-  /**/
-  .textarea {
-    background: red;
-    border: none;
-    resize: none;
-    color: #000000;
-    border-left: 1px solid black;
-    padding: 10px;
-  }
-  
   /* basic header styling */
   .jumbotron {
     text-align: center;
@@ -22,17 +12,6 @@ body {
     color: black;
     border-radius: 0;
     border-bottom: 10px solid black;
-  }
-  
-  /**/
-  .description{
-    white-space: pre-wrap;
-  }
-  
-  /**/
-  .time-block{
-    text-align: center;
-    border-radius: 15px;
   }
   
   /**/
@@ -54,19 +33,19 @@ body {
   /* adds background color to form elements relative to moment.js time */
   .past {
     background-color: #d3d3d3;
-    color: white;
+    color: black;
   }
   
   /* adds background color to form elements relative to moment.js time */
   .present {
     background-color: #ff6961;
-    color: white;
+    color: black;
   }
   
   /* adds background color to form elements relative to moment.js time */
   .future {
     background-color: #77dd77;
-    color: white;
+    color: black;
   }
   
   /* adds style to right-most bootstrap column, button */
