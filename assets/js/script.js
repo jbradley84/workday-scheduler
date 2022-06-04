@@ -37,25 +37,27 @@ var printDate = function () {
 // function to loop through planner by hour block
 var plannerHours = document.querySelectorAll(".col-10");
 for (let i = 0; i < plannerHours.length; i++) {
-
+    //console.log(plannerHours.length);
     if (parseInt(plannerHours[i].id.slice(4)) < parseInt(moment().format("H"))) {
+        //console.log(parseInt(plannerHours[i].id.slice(4)));
+        //console.log(parseInt(moment().format("H")));  
         var pastEvent = function () {
             console.log("past");
         }
+        pastEvent();
     } else if (parseInt(plannerHours[i].id.slice(4)) == parseInt(moment().format("H"))) {
+        //console.log(parseInt(plannerHours[i].id.slice(4)));
+        //console.log(parseInt(moment().format("H")));
         var presentEvent = function () {
             console.log("present");
         }
+        presentEvent();
     } else {
         var futureEvent = function () {
             console.log("future");
         }
+        futureEvent();
     }
-    //console.log(parseInt(moment().format("H")));    
-    //console.log(parseInt(plannerHours[i].id.slice(4)));    
-    //pastEvent();
-    //presentEvent();
-    //futureEvent();
 }
 
 
@@ -63,68 +65,40 @@ for (let i = 0; i < plannerHours.length; i++) {
 btnFunction = function () {
     var plannerInput = document.querySelectorAll(".col-10");
     for (let i = 0; i < plannerInput.length; i++) {
-        //console.log(plannerInput.length);
+        
         if (plannerInput[i].value) {
-            //console.log(plannerInput[i].value);
+            // create key/value variables for calendar events
             var eventKey = plannerInput[i].id;
             var eventValue = plannerInput[i].value;
-            //console.log(eventKey);
-            //console.log(eventValue);
+            // add key/value pairs to localStorage
+            localStorage.setItem(eventKey, eventValue);
 
-            // create object
-            var eventObject = {
-                key: eventKey,
-                value: eventValue
-            };
-            // push eventObject to plannerObjects array
-            plannerObjects.push(eventObject);
-            
+            // make localStorage data persistent 
+            for (let n = 0; n < localStorage.length; n++) {
+                if (localStorage.getitem(key) == eventKey) {
+                    console.log("we've got a match");
+                } else {
+                    console.log("no match");
+                }
+            }
+
+          
         }
-        
     }
-console.log(plannerObjects);
 
-    // cannot read properties of null (reading 'value')
-    // var plannerInput = document.querySelectorAll(".col-10");
-    // for (let i = 0; i < plannerInput.length; i++) {
-    //     var plannerEvent = document.getElementById(plannerInput[i].value);
-    //     if (plannerEvent.value) {
-    //         console.log(plannerEvent);
-    //     }
-    // }
+// // turn calendar events into objects
+// var eventObject = {
+//     key: eventKey,
+//     value: eventValue
+// };
+// // push eventObject to plannerObjects array
+// plannerObjects.push(eventObject);
 
+// // save plannerObjects array in localStorage
+// localStorage.setItem(plannerObjects);    
+//console.log(plannerObjects);
 
-    // returns null/null for eventKey/eventValue
-    // for (let i = 0; i < plannerInput.length; i++) {
-    //     var eventKey = document.getElementById(plannerInput[i]);
-    //     var eventValue = document.getElementById(plannerInput[i].value);
-
-    //     if (plannerInput[i].value) {
-    //         console.log(eventKey);
-    //         console.log(eventValue);
-    //     }
-    // }
-
-
-    // loop through inputs to locate updated calendar event
-    // var plannerInput = document.querySelectorAll(".col-10");
-    // for (let i = 0; i < plannerInput.length; i++) {
-    //     //console.log(plannerInput.length);
-    //     //console.log(plannerInput[i].value);
-    //     // if event has been added into workday scheduler, create an object
-    //     if (plannerInput[i].value) {
-    //         var eventData = [
-    //             {
-    //                 event: ,
-    //                 id: 
-    //             }
-    //         ];
-    //         // push object to plannerObjects array
-
-    //         // set array to localStorage
-    //     }
-
-    // }
+    
 }
 
 
