@@ -29,13 +29,13 @@ for (let i = 0; i < plannerHours.length; i++) {
             plannerHours[i].classList.add("past");
         }
         pastEvent();
-    // if event hour is now, add class "present"
+        // if event hour is now, add class "present"
     } else if (parseInt(plannerHours[i].id.slice(4)) == parseInt(moment().format("H"))) {
         var presentEvent = function () {
             plannerHours[i].classList.add("present");
         }
         presentEvent();
-    // if event hour is in the future, add class "future"
+        // if event hour is in the future, add class "future"
     } else {
         var futureEvent = function () {
             plannerHours[i].classList.add("future");
@@ -49,23 +49,20 @@ for (let i = 0; i < plannerHours.length; i++) {
 btnFunction = function () {
     var plannerInput = document.querySelectorAll(".col-10");
     for (let i = 0; i < plannerInput.length; i++) {
-        
+
         if (plannerInput[i].value) {
             // create key/value variables for calendar events
             var eventKey = plannerInput[i].id;
             var eventValue = plannerInput[i].value;
             // add key/value pairs to localStorage
             localStorage.setItem(eventKey, eventValue);
-        } 
-
-        if (plannerInput[i].value == "") {
-            localStorage.removeItem(eventValue);
         }
     }
 }
 
 
-var renderSavedData = function() {
+// function to make localStorage data persistent
+var renderSavedData = function () {
     var plannerInput = document.querySelectorAll(".col-10");
     for (let i = 0; i < plannerInput.length; i++) {
         $("#" + plannerInput[i].id).val(localStorage.getItem(plannerInput[i].id));
@@ -73,8 +70,10 @@ var renderSavedData = function() {
 }
 
 
+
+
 // run function printDate
-printDate();
+setInterval(printDate, 60000);
 renderSavedData();
 
 
