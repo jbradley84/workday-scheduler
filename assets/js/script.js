@@ -61,27 +61,70 @@ for (let i = 0; i < plannerHours.length; i++) {
 
 // function to convert event data into objects within plannerObjects array, and save to localStorage 
 btnFunction = function () {
-
-    // loop through inputs to locate updated calendar event
     var plannerInput = document.querySelectorAll(".col-10");
     for (let i = 0; i < plannerInput.length; i++) {
         //console.log(plannerInput.length);
-        //console.log(plannerInput[i].value);
-        // if event has been added into workday scheduler, create an object
         if (plannerInput[i].value) {
-            var eventData = [
-                {
-                    event: ,
-                    id: 
-                }
-            ];
-            // push object to plannerObjects array
+            //console.log(plannerInput[i].value);
+            var eventKey = plannerInput[i].id;
+            var eventValue = plannerInput[i].value;
+            //console.log(eventKey);
+            //console.log(eventValue);
 
-            // set array to localStorage
+            // create object
+            var eventObject = {
+                key: eventKey,
+                value: eventValue
+            };
+            // push eventObject to plannerObjects array
+            plannerObjects.push(eventObject);
+            
         }
-        // var plannerEvent = document.getElementById([i]);
-        // console.log(plannerEvent[i].value);
+        
     }
+console.log(plannerObjects);
+
+    // cannot read properties of null (reading 'value')
+    // var plannerInput = document.querySelectorAll(".col-10");
+    // for (let i = 0; i < plannerInput.length; i++) {
+    //     var plannerEvent = document.getElementById(plannerInput[i].value);
+    //     if (plannerEvent.value) {
+    //         console.log(plannerEvent);
+    //     }
+    // }
+
+
+    // returns null/null for eventKey/eventValue
+    // for (let i = 0; i < plannerInput.length; i++) {
+    //     var eventKey = document.getElementById(plannerInput[i]);
+    //     var eventValue = document.getElementById(plannerInput[i].value);
+
+    //     if (plannerInput[i].value) {
+    //         console.log(eventKey);
+    //         console.log(eventValue);
+    //     }
+    // }
+
+
+    // loop through inputs to locate updated calendar event
+    // var plannerInput = document.querySelectorAll(".col-10");
+    // for (let i = 0; i < plannerInput.length; i++) {
+    //     //console.log(plannerInput.length);
+    //     //console.log(plannerInput[i].value);
+    //     // if event has been added into workday scheduler, create an object
+    //     if (plannerInput[i].value) {
+    //         var eventData = [
+    //             {
+    //                 event: ,
+    //                 id: 
+    //             }
+    //         ];
+    //         // push object to plannerObjects array
+
+    //         // set array to localStorage
+    //     }
+
+    // }
 }
 
 
