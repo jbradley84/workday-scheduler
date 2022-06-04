@@ -18,7 +18,11 @@ btnTwoPm = document.querySelector("#Btn14");
 btnThreePm = document.querySelector("#Btn15");
 btnFourPm = document.querySelector("#Btn16");
 btnFivePm = document.querySelector("#Btn17");
+// empty array for event objects
+var plannerObjects = [];
 
+
+// function to display date in header
 var printDate = function () {
     // format date into string
     var calendarDate = moment().format("dddd" + ", " + "MMMM" + " Do");
@@ -28,15 +32,12 @@ var printDate = function () {
 }
 
 
-
-
-
 //console.log(document.querySelectorAll(".col-10"));
 //console.log(moment().format("H"));
 // function to loop through planner by hour block
 var plannerHours = document.querySelectorAll(".col-10");
 for (let i = 0; i < plannerHours.length; i++) {
-    
+
     if (parseInt(plannerHours[i].id.slice(4)) < parseInt(moment().format("H"))) {
         var pastEvent = function () {
             console.log("past");
@@ -50,23 +51,37 @@ for (let i = 0; i < plannerHours.length; i++) {
             console.log("future");
         }
     }
-console.log(parseInt(plannerHours[i].id.slice(4)));    
-//pastEvent();
-//presentEvent();
-//futureEvent();
+    //console.log(parseInt(moment().format("H")));    
+    //console.log(parseInt(plannerHours[i].id.slice(4)));    
+    //pastEvent();
+    //presentEvent();
+    //futureEvent();
 }
 
-// button function
+
+// function to convert event data into objects within plannerObjects array, and save to localStorage 
 btnFunction = function () {
-    //console.log("button click");
-    var plannerObjects = [];
-    // create array object with inpud ID and text string
-    //var plannedEvent = document.querySelector("input").id
-        // if button class == input class, create array object...does specific button matter?...
-    // push array object to plannerObjects array
-    // store array in localStorage
-    // add array object items to HTML
-    
+
+    // loop through inputs to locate updated calendar event
+    var plannerInput = document.querySelectorAll(".col-10");
+    for (let i = 0; i < plannerInput.length; i++) {
+        //console.log(plannerInput.length);
+        //console.log(plannerInput[i].value);
+        // if event has been added into workday scheduler, create an object
+        if (plannerInput[i].value) {
+            var eventData = [
+                {
+                    event: ,
+                    id: 
+                }
+            ];
+            // push object to plannerObjects array
+
+            // set array to localStorage
+        }
+        // var plannerEvent = document.getElementById([i]);
+        // console.log(plannerEvent[i].value);
+    }
 }
 
 
