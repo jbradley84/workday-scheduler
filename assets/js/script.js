@@ -32,8 +32,6 @@ var printDate = function () {
 }
 
 
-//console.log(document.querySelectorAll(".col-10"));
-//console.log(moment().format("H"));
 // function to loop through planner by hour block
 var plannerHours = document.querySelectorAll(".col-10");
 for (let i = 0; i < plannerHours.length; i++) {
