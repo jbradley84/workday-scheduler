@@ -20,27 +20,33 @@ var printDate = function () {
 }
 
 
-// function to loop through planner by hour block
-var plannerHours = document.querySelectorAll(".col-10");
-for (let i = 0; i < plannerHours.length; i++) {
-    // if event hour has passed, add class "past"
-    if (parseInt(plannerHours[i].id.slice(4)) < parseInt(moment().format("H"))) {
-        var pastEvent = function () {
-            plannerHours[i].classList.add("past");
+// function to update html inputs with past/present/future class
+var colorCoding = function () {
+    // loop through planner by hour block
+    var plannerHours = document.querySelectorAll(".col-10");
+    for (let i = 0; i < plannerHours.length; i++) {
+
+        // if event hour has passed, add class "past"
+        if (parseInt(plannerHours[i].id.slice(4)) < parseInt(moment().format("H"))) {
+            var pastEvent = function () {
+                plannerHours[i].classList.add("past");
+            }
+            pastEvent();
+
+            // if event hour is now, add class "present"
+        } else if (parseInt(plannerHours[i].id.slice(4)) == parseInt(moment().format("H"))) {
+            var presentEvent = function () {
+                plannerHours[i].classList.add("present");
+            }
+            presentEvent();
+
+            // if event hour is in the future, add class "future"
+        } else {
+            var futureEvent = function () {
+                plannerHours[i].classList.add("future");
+            }
+            futureEvent();
         }
-        pastEvent();
-        // if event hour is now, add class "present"
-    } else if (parseInt(plannerHours[i].id.slice(4)) == parseInt(moment().format("H"))) {
-        var presentEvent = function () {
-            plannerHours[i].classList.add("present");
-        }
-        presentEvent();
-        // if event hour is in the future, add class "future"
-    } else {
-        var futureEvent = function () {
-            plannerHours[i].classList.add("future");
-        }
-        futureEvent();
     }
 }
 
@@ -70,10 +76,17 @@ var renderSavedData = function () {
 }
 
 
+// run function printDate and colorCoding when js loads
+printDate();
+colorCoding();
 
+// interval timer to run function printDate every hour
+setInterval(printDate, (1000*60*60));
 
-// run function printDate
-setInterval(printDate, 60000);
+// interval timer to run function colorCoding every minute
+setInterval(colorCoding, 60000);
+
+// run function to pull localStorage event data into HTML
 renderSavedData();
 
 
